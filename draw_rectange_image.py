@@ -40,8 +40,8 @@ def draw_rectangle(image_file, start_pos, length, width, thickness=3, with_plot=
         if thickness != -1:
             inner_image_rect = np.pad(array=gsi_image, pad_width=thickness, mode='constant', constant_values=color_name)
         else:
-            max_width, max_height = gso_image.shape
-            inner_image_rect = np.zeros(shape=(max_width, max_height))
+            max_height, max_width = gso_image.shape
+            inner_image_rect = np.zeros(shape=(max_height, max_width))
     else:
         with open(file='color_names_data.json', mode='r') as col_json:
             color_db = json.load(fp=col_json)
@@ -62,10 +62,10 @@ def draw_rectangle(image_file, start_pos, length, width, thickness=3, with_plot=
             b_inner_rect = np.pad(array=b_inner_image, pad_width=thickness, mode='constant', constant_values=b_cons)
             inner_image_rect = np.dstack(tup=(r_inner_rect, g_inner_rect, b_inner_rect))
         else:
-            max_width, max_height, _ = gso_image.shape
-            r_out_rect = np.full(shape=(max_width, max_height), fill_value=r_cons)
-            g_out_rect = np.full(shape=(max_width, max_height), fill_value=g_cons)
-            b_out_rect = np.full(shape=(max_width, max_height), fill_value=b_cons)
+            max_height, max_width, _ = gso_image.shape
+            r_out_rect = np.full(shape=(max_height, max_width), fill_value=r_cons)
+            g_out_rect = np.full(shape=(max_height, max_width), fill_value=g_cons)
+            b_out_rect = np.full(shape=(max_height, max_width), fill_value=b_cons)
             inner_image_rect = np.dstack(tup=(r_out_rect, g_out_rect, b_out_rect))
     
     image_src[start_row_grab:end_row_grab, start_column_grab:end_column_grab] = inner_image_rect
