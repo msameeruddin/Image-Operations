@@ -1,4 +1,4 @@
-# Image Operations - from scratch
+# Image Operations from Scratch
 
 This repository includes the code for various image operations implemented from scratch. NumPy module is extensively used for matrix operations. You can find the related work in the form of blogs.
 
